@@ -7,7 +7,7 @@ const app = express()
 
 PORT = 3000
 
-app.use(express.static)
+app.use(express.static("public"))
 
 app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "notes.html"))

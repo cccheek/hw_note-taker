@@ -1,18 +1,24 @@
 const { response } = require("express")
 const express = require("express")
 const fs = require("fs")
+const path = require("path")
 
-const server = express()
+const app = express()
 
 PORT = 3000
 
-server.get("/", (req, res) => {
-    res.send("yo")
+app.use(express.static)
+
+app.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "notes.html"))
 })
+// server.get("/mypage", (req, res) => {
+    // res.send("yo")
+// })
 
 
 
 
-server.listen(PORT, function(){
+app.listen(PORT, function(){
     console.log(`run run run ${PORT}`);
 })

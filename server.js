@@ -1,17 +1,17 @@
 const { v4: uuidv4 } = require('uuid');
 uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
-const { response } = require("express")
-const express = require("express")
-const fs = require("fs")
-const path = require("path")
+const { response } = require("express");
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
 
-const app = express()
+const app = express();
 
 PORT = process.env.PORT || 3000
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(express.static("public"))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
 
 
 app.get("/notes", (req, res) => {
@@ -35,7 +35,7 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
 
     const incoming = req.body;
-    incoming.id = uuidv4()
+    incoming.id = uuidv4();
 
     fs.readFile(path.join(__dirname, "./db/db.json"), "utf8", (err, data) => {
         if (err) throw err;
@@ -50,7 +50,7 @@ app.post("/api/notes", (req, res) => {
                 if (err) throw err;
 
             });
-        }
+        };
     });
 
 });
@@ -72,15 +72,15 @@ app.delete("/api/notes/:id", (req, res) => {
                         if (err) throw err;
                         else {
                             res.send("Deleted!")
-                        }
+                        };
                     }
 
-                    )
-                }
+                    );
+                };
 
-            }
-        }
-    })
+            };
+        };
+    });
 }
 
 
@@ -90,4 +90,4 @@ app.delete("/api/notes/:id", (req, res) => {
 
 app.listen(PORT, function () {
     console.log(`run run run ${PORT}`);
-})
+});

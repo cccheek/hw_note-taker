@@ -20,6 +20,8 @@
   Hit get started, enter a title and write out your notes! Hit save and keep coming back to them until you hit delete and get rid of them!
 
   https://ccc-note-taker.herokuapp.com/
+
+  ![Image](https://media.giphy.com/media/MnzrI3t6It85litWbt/giphy.gif)
   
   ## License
   n/a
